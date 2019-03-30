@@ -66,6 +66,10 @@
 		</select>
 		</div>
 		<div class="col-sm-3">
+				<label>Sales_number:</label>
+			<input type="text" name="sales_number" equired class="form-control" placeholder="sales_number" required>
+			</div>
+		<div class="col-sm-3">
 				<label>Date:</label>
 			<input type="date" name="date1" equired class="form-control" placeholder="Enter date" required>
 			</div>
@@ -107,7 +111,6 @@
 			<table id="invoice-item-table" class="table table-bordered table-sm">
 									<tr>
 										<th>Product_code:</th>
-										<th>Sales_number:</th>
 										<th>Quantity</th>
 										<th>Unit</th>
  										<th>Unit_Price</th>
@@ -115,10 +118,9 @@
 									</tr>
 									<tr>
 										<td><input type="text" name="products[]" id="product_code1" class="form-control form-control-sm input-sm barcode" placeholder="product_code"/ required></td>
-										<td><input type="text" name="sales[]" id="sales_number1" class="form-control form-control-sm input-sm sales" placeholder="Sales_number"/ required></td>
 										<td><input type="number" min="1" name="quantity[]" id="quantity1" data-srno="1" class="form-control form-control-sm input-sm quantity" placeholder="Quantity" /required></td>
-										<td><input type="text" name="unit[]" id="unit1" data-srno="1" class="form-control form-control-sm  input-sm unit" pattern="[A-Za-z0-9]+" placeholder="Unit"required></td>
-										<td><input type="number" step="0.01" min="0.00" name="price[]" id="price1" data-srno="1" class="form-control form-control-sm input-sm price" placeholder="Price" /required></td>
+										<td><input type="text" name="unit[]" id="unit1" data-srno="1" class="form-control form-control-sm  input-sm unit"  placeholder="Unit"required></td>
+										<td><input type="number" step="0001.00" min="0000.00" name="price[]" id="price1" data-srno="1" class="form-control form-control-sm input-sm price" placeholder="Price" /required></td>
 									</tr>								
 								</table>
 								<center>
@@ -135,7 +137,6 @@
 	var count = 1;
 	$(document).on('change','#products', function(){
 		load(count);
-		alert(count);
 	});
 	$(document).on('click','#add_row', function(){
 		count += 1;
@@ -144,9 +145,8 @@
 		var html_code = ''; 
 		html_code += '<tr id="row_id_'+count+'">';
 		html_code += '<td><input type="text" name="products[]" id="product_code'+count+'" class="form-control form-control-sm input-sm product_code" placeholder="product_code"/></td>';
-		html_code += '<td><input type="text" name="sales_number[]" id="sales_number'+count+'" data-srno="'+count+'" class="form-control form-control-sm input-sm sales_number" placeholder="sales_number"/></td>';
 		html_code += '<td><input type="number" name="quantity[]" min="1" id="quantity'+count+'" data-srno="'+count+'" placeholder="Quantity"  class="form-control form-control-sm nput-sm quantity" /></td>';
-		html_code += '<td><input type="text" name="unit[]" pattern="[A-Za-z]+" title="No number on unit" id="unit'+count+'" placeholder="Unit" data-srno="'+count+'" class="form-control form-control-sm input-sm unit"></td>';
+		html_code += '<td><input type="text" name="unit[]" pattern="[A-Za-z]+" title="unit" id="unit'+count+'" placeholder="Unit" data-srno="'+count+'" class="form-control form-control-sm input-sm unit"></td>';
 		html_code += '<td><input type="number" name="price[]" min="0000.00" step="0000.00" placeholder="price" id="price'+count+'" data-srno="'+count+'" class="form-control form-control-sm input-sm Price"></td>';
 		html_code += '<td><button type="button" name="remove_row" id="'+count+'" class="btn btn-sm btn-danger btn-xs remove_row">Remove</button></td></tr>';
 		$("#invoice-item-table").append(html_code);
@@ -166,7 +166,6 @@
 			success : function(data){
 				for(x in data){
 						$('#product_code'+count).val(data.product_code);
-						$('#sales_number'+count).val(data.sales_number);
 						$('#price'+count).val(data.price);
 						$('#unit'+count).val(data.unit);
 					}
