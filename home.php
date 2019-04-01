@@ -33,9 +33,6 @@
        <a href="sales_invoice.php"><input type=button value="Sales Invoice"></a>
       </td>
 	  <td>
-       <a href="report.php"><input type=button value="Report"></a>
-      </td>
-	  <td>
        <a href="about.php"><input type=button value="About"></a>
 	   <td>
        <a href="update_password.php"><input type=button value="Change Password"></a>

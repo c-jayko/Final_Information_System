@@ -32,6 +32,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   	<a class="navbar-brand"></a>
       <ul class="navbar-nav mr-auto">
+	   <td>
+       <a href="report.php"><input type=button value="List of Customer Order"></a>
+      </td>
     
 	</ul>
 	        <a href="home.php" button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Back</a>

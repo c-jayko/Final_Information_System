@@ -1,15 +1,9 @@
-<?php 
-
-session_start();
-include('set.php'); 
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="Style/style.css">
 </head>
 <br>
