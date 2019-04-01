@@ -1,3 +1,13 @@
+<?php 
+	session_start();
+	include('set.php');
+	
+	if(isset($_POST['logout'])){
+		session_destroy();
+		unset($_SESSION['username']);
+		header('location: new1.php');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +31,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   	<a class="navbar-brand"></a>
-    <ul class="navbar-nav mr-auto">
-	   
+    <ul class="navbar-nav mr-auto">   
 	</ul>
 	          <a href="home.php" button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Back</a>
              <a href="logout.php" button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Log Out</a>

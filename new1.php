@@ -3,12 +3,9 @@
         <meta charset="UTF-8" />
         <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
-        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
-        <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="Style/style.css">
     </head>
 	<style>
 	body{
@@ -18,71 +15,34 @@
 	width: 100%;
 	}
 </style>
+<?php include('server_pass.php') ?>
     <body>
+	<center>
+	<br>
         <div class="container">
             <header>
                 <nav class="navbar navbar-dark bg-primary">
-                <h1>AJ's Catering Service</h1>
+				<label class="text-light">Log In to AJ's Catering Service</label><br>
                 </nav>
             </header>
-            <section>				
-                <div id="container_demo" >
-                    <a class="hiddenanchor" id="toregister"></a>
-                    <a class="hiddenanchor" id="tologin"></a>
-                    <div id="wrapper">
-                        <div id="login" class="animate form">
-                            <form  action="login.php" autocomplete="on" method="post"> 
-                                <h1>Log in</h1> 
-                                <p> 
-                                    <label for="username" class="uname" data-icon="U" > Your username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="jaycoh"/>
-                                </p>
-                                <p> 
-                                    <label for="password" class="youpasswd" data-icon="P"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
-                                </p>
-                                <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-									<label for="loginkeeping">Keep me logged in</label>
-								</p>
-                                <p class="login button"> 
-                                    <input type="submit" value="Login" name="submit"/> 
-								</p>
-                                <p class="change_link">
-									Already have an account?
-									<a href="#toregister" class="to_register">Sign Up</a>
-								</p>
-                            </form>
-                        </div>
-
-                        <div id="register" class="animate form">
-                            <form  action="sign.php" autocomplete="on" method="post"> 
-                                <h1> Sign up </h1> 
-                                <p> 
-                                    <label for="usernamesignup" class="uname" data-icon="U">Your username</label>
-                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="jaycoh" />
-                                </p>
-                                <p> 
-                                    <label for="emailsignup" class="youmail" data-icon="E" > Your email</label>
-                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="Jaycoh654@gmail.com"/> 
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup" class="youpasswd" data-icon="P">Your password </label>
-                                    <input id="passwordsignup" name="MD5" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
-                                <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
-								</p>
-                                <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
-								</p>
-                            </form>
-                        </div>
-						
-                    </div>
-                </div>  
-            </section>
-        </div>
-    </body>
+            <section><br>		 
+  <form method="post" action="check_login.php">
+  	<?php include('error_pass.php'); ?>
+		<div class="form-row w-25 pl-3 pr-3 bg-info" style="border:1px solid black;border-radius:20px;">
+		<div class="col-md-12">
+		<br>
+  		<label class="text-light">Username</label><br>
+  		<input  type="text" class="form-control" placeholder="Enter Username" name="username" >
+		<br>
+  		<label class="text-light">Password</label><br>
+  		<input type="password"  class="form-control" placeholder="Enter Password" name="password"><br>
+  		<button type="submit" class="btn" name="login_user">Login</button>
+  	</div>
+  	<p>
+  		<!--Not yet a member? <a href="registration.php">Sign up</a> -->
+  	</p></div>
+  </form>
+  </center>
+</body>
 </html>
+      

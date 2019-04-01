@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,9 @@
       </td>
 	  <td>
        <a href="about.php"><input type=button value="About"></a>
+	   <td>
+       <a href="update_password.php"><input type=button value="Change Password"></a>
+      </td>
       </td>
 	</ul>
 	
