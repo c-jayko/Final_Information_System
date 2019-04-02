@@ -1,13 +1,3 @@
-<?php 
-	session_start();
-	include('set.php');
-	
-	if(isset($_POST['logout'])){
-		session_destroy();
-		unset($_SESSION['username']);
-		header('location: new1.php');
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

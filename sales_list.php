@@ -1,10 +1,10 @@
 <?php
 session_start();
 require 'connection.php';
-	$sql = "SELECT sales.product_code, sales.sales_number, sales.quantity, sales.unit, sales.unit_price
-	FROM sales 
-	JOIN invoice
-	ON sales.sales_number = invoice.sales_number group by invoice.sales_number" ;
+	$sql = "SELECT invoice.sales_number, invoice.customer_id, invoice.date, invoice.terms
+	FROM invoice 
+	JOIN sales
+	ON invoice.sales_number = sales.sales_number group by sales.sales_number" ;
 	$row=mysqli_query($db,$sql);
 
 ?>
@@ -26,7 +26,7 @@ require 'connection.php';
    </head>
 <br><div class="text-center">
                 <div class="header">
-    		 <div class="p-3 mb-2 bg-primary text-white"><h1>---- Customer Order List ----</h1></div>
+    		 <div class="p-3 mb-2 bg-primary text-white"><h1>---- Sales List ----</h1></div>
   		</div>
 <nav class="navbar navbar-expand-lg navbar-light bg">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +43,10 @@ require 'connection.php';
        <a href="pro_list.php"><input type=button value="Product List"></a>
       </td>
 	  <td>
-       <a href="sales_list.php"><input type=button value="Sales Invoice"></a>
+       <a href="sales_list.php" button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Sales Invoice</a>
       </td>
-	   <td>
-       <a href="report.php" button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Sales Items</a>
+	  <td>
+       <a href="report.php"><input type=button value="Sales Item"></a>
       </td>
     
 	</ul>
@@ -69,14 +69,13 @@ require 'connection.php';
 <center>
 <div class="container">
 <div class="table-responsive">
-<table class="table table-bordered table-hover table-striped" id="report_sales">
+<table class="table table-bordered table-hover table-striped" id="pro_list">
 	<thead>
 		<tr>
-		<th>Product_code</th>
         <th>Sales_number</th>
-		<th>Quantity</th>
-        <th>Unit</th>		
-		<th>Unit_Price</th>		
+		<th>Customer_Id</th>
+        <th>Date</th>		
+		<th>Terms</th>		
       </tr>
 	</thead>
 	<tbody>
@@ -84,11 +83,10 @@ require 'connection.php';
       		while($information=mysqli_fetch_assoc($row)){
       		?>
 			<tr>
-			<td><?php echo $information['product_code']?></td>
 			<td><?php echo $information['sales_number']?></td>
-			<td><?php echo $information['quantity']?></td>
-			<td><?php echo $information['unit']?></td>
-			<td>₱<?php echo $information['unit_price']?></td>
+			<td><?php echo $information['customer_id']?></td>
+			<td><?php echo $information['date']?></td>
+			<td>₱<?php echo $information['terms']?></td>
 			</tr>
 		<?php } ?>
 		</tbody>
@@ -97,7 +95,7 @@ require 'connection.php';
 	  </center>
 	  <script>
 		$(document).ready( function () {
-    $('#report_sales').DataTable();
+    $('#pro_list').DataTable();
 } );
 	</script>
 </body>

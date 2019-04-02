@@ -21,3 +21,4 @@
 			echo "<script> alert('Your Password is Incorrect!'); window.location.href='update_password.php';</script>";
 		}
 	}
+	?>

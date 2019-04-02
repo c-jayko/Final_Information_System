@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 07:35 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: May 01, 2019 at 11:28 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -62,7 +60,7 @@ CREATE TABLE `invoice` (
   `sales_number` varchar(10) NOT NULL,
   `customer_id` varchar(20) NOT NULL,
   `date` date NOT NULL,
-  `terms` varchar(10) NOT NULL
+  `terms` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -72,7 +70,9 @@ CREATE TABLE `invoice` (
 INSERT INTO `invoice` (`sales_number`, `customer_id`, `date`, `terms`) VALUES
 ('112a', '1231', '2019-03-28', 'Credit'),
 ('1231', '1231', '2019-03-13', 'Cash'),
-('1234', '1231', '2019-03-28', 'Cash');
+('1234', '1231', '2019-03-28', 'Cash'),
+('2345', '1115021', '2019-03-31', 'Cash On De'),
+('ee343', '1115021', '2019-04-02', 'Credit');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,9 @@ CREATE TABLE `sales` (
 
 INSERT INTO `sales` (`product_code`, `sales_number`, `quantity`, `unit`, `unit_price`) VALUES
 ('112d', '1231', 5, '1 kilo', '56.09'),
-('2324', '1234', 3, '1 kilo', '56.09');
+('2324', '1234', 3, '1 kilo', '56.09'),
+('112d', '2345', 2, '1 plate', '25.00'),
+('112d', 'ee343', 2, '1 plate', '25.00');
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,7 @@ CREATE TABLE `signin` (
   `Id` int(10) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(10) NOT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -140,8 +142,7 @@ CREATE TABLE `signin` (
 --
 
 INSERT INTO `signin` (`Id`, `username`, `email`, `password`) VALUES
-(0, 'jay12', 'jay21@gmail.com', '11111'),
-(0, 'admin', 'admin@gmail.com', 'admin');
+(4, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -174,6 +175,21 @@ ALTER TABLE `sales`
   ADD KEY `product_code` (`product_code`);
 
 --
+-- Indexes for table `signin`
+--
+ALTER TABLE `signin`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `signin`
+--
+ALTER TABLE `signin`
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- Constraints for dumped tables
 --
 
@@ -189,7 +205,6 @@ ALTER TABLE `invoice`
 ALTER TABLE `sales`
   ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`product_code`) REFERENCES `product` (`product_code`),
   ADD CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`sales_number`) REFERENCES `invoice` (`sales_number`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

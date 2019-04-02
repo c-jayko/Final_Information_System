@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +30,9 @@
       </td>
 	  <td>
        <a href="sales_invoice.php"><input type=button value="Sales Invoice"></a>
+      </td>
+	  <td>
+       <a href="cus_list.php"><input type=button value="Reports"></a>
       </td>
 	  <td>
        <a href="about.php"><input type=button value="About"></a>

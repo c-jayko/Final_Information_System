@@ -5,6 +5,10 @@
   <title>Registration system PHP and MySQL</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="Style/style.css">
+  <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 <br>
 <body class="">
@@ -36,7 +40,7 @@
 </style>
 <center>		 
   <form method="post" action="change_pass.php">
-		<div class="form-row w-25 pl-3 pr-3 bg-white" style="border:1px solid black;border-radius:20px;">
+		<div class="form-row w-25 pl-3 pr-3 " style="border:1px solid black;">
 		<div class="col-md-12">
 		<br>
   		<label class="text-primary">Enter Current Password</label><br>
@@ -47,8 +51,7 @@
 		<br>
 		<label class="text-primary">Confirm New Password</label><br>
   		<input type="password"  class="form-control" placeholder="Confirm Password" name="password3" required><br>
-  		<button type="submit" class="btn btn-primary" name="confirm">Submit</button>
-		<a href="home.php" class="btn btn-info" >Cancel</a>
+  		<button type="submit" class="btn btn-primary" name="confirm">-- Submit --</button>
   	</div>
   	<p>
   		<!--Not yet a member? <a href="registration.php">Sign up</a> -->

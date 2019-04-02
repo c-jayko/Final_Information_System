@@ -4,6 +4,14 @@
     <meta charset="utf-8">
 	<link rel="stylesheet" href="Style/style1.css">
  </head>
+ <style>
+ body{
+	background-image: url(images/jay.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	}
+	</style>
 <body>
 
  <div class="preload">

@@ -12,10 +12,16 @@
 		margin: 60px auto;
 		font-family: arial;
 	}
+	body{
+	background-image: url(images/jay.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	}
 	</style>
 </head>
 <body>
-<h1 class="welcome">Welcome to AJ's Food Creation</h1>
+<h1 class="welcome">Continue ...</h1>
  <a href="home.php"><center><img src="images/jay1.jpg" class="rounded mx-auto d-block"><center></a>
 <p><b>To Continue Just Click!!<b></p>
 </body>

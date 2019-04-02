@@ -37,8 +37,9 @@ if(isset($_POST['save'])){
 	header("location:cus_read.php");
 }
 if(isset($_GET['delete'])){
-	$id =$_GET['delete'];
-	$mysqli->query("DELETE FROM customer WHERE customer_id=$id") or die($mysqli->error());
+	$customer_id =$_GET['delete'];
+	$mysqli->query("DELETE FROM customer WHERE customer_id=$customer_id") or 
+	die($mysqli->error());
 	
 	$_SESSION['message'] = "Record has been deleted from Customer List!";
 	$_SESSION['msg_type'] = "danger";
@@ -50,7 +51,8 @@ if(isset($_GET['delete'])){
 if(isset($_GET['edit'])){
 	$id = $_GET['edit'];
 	$update =true;
-	$result = $mysqli->query("SELECT * FROM customer WHERE customer_id=$id") or die($mysqli->error);
+	$result = $mysqli->query("SELECT * FROM customer WHERE customer_id=$id") or 
+	          die($mysqli->error);
 	if(@count($result)==1){
 		$row=$result->fetch_array();
 		$customer_id = $row['customer_id'];
